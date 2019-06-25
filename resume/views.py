@@ -8,4 +8,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Please, see my <a href="David_Edwards_Resume"Resume.")
+    resume = None
+    with open('resume/David_Edwards_Resume.html', 'r') as f:
+        resume = f.read()
+    if resume:
+        return HttpResponse(resume)
